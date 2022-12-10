@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
-import com.example.myapplication.RollDice as RollDice1
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,14 +14,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         rollBtn = findViewById(R.id.dice_btn)
         diceImage = findViewById(R.id.dice_image)
 
-        val rollDice = RollDice1()
-
+        val rollDice = RollDice()
         rollBtn.setOnClickListener {
-            rollDice.diceRoll()
+            diceImage.setImageResource(rollDice.diceRoll())
             Toast.makeText(this, "Dice rolled", Toast.LENGTH_SHORT).show()
         }
 

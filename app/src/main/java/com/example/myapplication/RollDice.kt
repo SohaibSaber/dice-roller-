@@ -3,8 +3,9 @@ package com.example.myapplication
 import android.widget.Toast
 
 class RollDice {
-    val mainActivity = MainActivity()
-    fun diceRoll() {
+
+
+    fun diceRoll(): Int {
         var randomNum = (1..6).random()
 
         var imageDice: Int = when (randomNum) {
@@ -27,7 +28,6 @@ class RollDice {
                 R.drawable.dice_6
             }
         }
-        mainActivity.diceImage.setImageResource(imageDice)
-
+        return imageDice
     }
 }
