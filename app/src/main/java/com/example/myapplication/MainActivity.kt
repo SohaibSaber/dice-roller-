@@ -5,50 +5,27 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.myapplication.RollDice as RollDice1
 
 class MainActivity : AppCompatActivity() {
 
-      lateinit var roll_btn : Button
-      lateinit var dice_image: ImageView
+    lateinit var rollBtn: Button
+    lateinit var diceImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-         roll_btn = findViewById(R.id.dice_btn)
-        dice_image = findViewById(R.id.dice_image)
+        rollBtn = findViewById(R.id.dice_btn)
+        diceImage = findViewById(R.id.dice_image)
 
-        roll_btn.setOnClickListener {
-            diceRoll()
+        val rollDice = RollDice1()
+
+        rollBtn.setOnClickListener {
+            rollDice.diceRoll()
+            Toast.makeText(this, "Dice rolled", Toast.LENGTH_SHORT).show()
         }
 
     }
 
-    public fun diceRoll() {
-        var randomNum = (1..6).random()
-
-        var imageDice : Int
-        when (randomNum) {
-            1 -> {
-                imageDice = R.drawable.dice_1
-            }
-            2 -> {
-                imageDice = R.drawable.dice_2
-            }
-            3 -> {
-                imageDice = R.drawable.dice_3
-            }
-            4 -> {
-                imageDice = R.drawable.dice_4
-            }
-            5 -> {
-                imageDice = R.drawable.dice_5
-            }
-            else -> {
-                imageDice = R.drawable.dice_6
-            }
-        }
-        dice_image.setImageResource(imageDice)
-        Toast.makeText(this,"Dice rolled",Toast.LENGTH_SHORT).show()
-    }
 }
